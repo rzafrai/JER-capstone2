@@ -17,7 +17,7 @@ campanyes.columns
 
 # cálculo de la edad en años
 campanyes['data_naixement']=pd.to_datetime(campanyes['data_naixement'])
-campanyes['edad_dias']=(pd.to_datetime(datetime.now())-pd.to_datetime(campanyes['data_naixement']))
+campanyes['edad_dias']=(pd.to_datetime(campanyes['data_ini_lead'])-pd.to_datetime(campanyes['data_naixement']))
 campanyes['edad_anyos']=campanyes['edad_dias'].astype('timedelta64[D]')/365.24
 
 edad_media_anyos=campanyes['edad_anyos'].mean()
@@ -103,6 +103,8 @@ campanya_20161['data_ini_lead_date']=pd.to_datetime(campanya_20161['data_ini_lea
 evol_campanya_20151=campanya_20151.groupby(['data_ini_lead_date'])['producte_comprat_recode'].count()
 evol_campanya_20152=campanya_20152.groupby(['data_ini_lead_date'])['producte_comprat_recode'].count()
 evol_campanya_20161=campanya_20161.groupby(['data_ini_lead_date'])['producte_comprat_recode'].count()
+
+evol_campanya_20151
 
 evol_campanya_20151.plot()
 evol_campanya_20152.plot()
